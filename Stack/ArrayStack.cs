@@ -37,15 +37,15 @@ public class ArrayStack(int size)
         top -= 1; // Decrease top by 1
     }
 
-    public int Peek()
+    public void Peek()
     {
         if (top == -1)
         {
             Console.WriteLine("Stack is empty"); 
-            return -1;
+            return;
         }
         
-        return stack[top];
+        Console.WriteLine($"Peek returned {stack[top]}");
     }
 
     public void Print()
