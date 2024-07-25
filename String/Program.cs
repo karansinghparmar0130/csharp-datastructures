@@ -101,15 +101,16 @@ public class Program
         var isSubtringPresent = false;
         for(int i = 0; i< input.Length; i++)
         {
+            int temp = i;
             for(int j = 0; j < substring.Length; j++)
             {
-                var inputChar = input[i];
+                var inputChar = input[temp];
                 var substringChar = substring[j];
                 if(inputChar != substringChar)
                     break;
 
-                // Move input string pointer ahead
-                i++;
+                // Move temp string pointer ahead
+                temp++;
 
                 // Check if we have managed to traverse sunstring
                 if (j == substring.Length - 1)
@@ -202,6 +203,10 @@ public class Program
 
         var stringDoesNotContainSubstring2 = CheckSubstringV2(input, "Singh1");
         Console.WriteLine($"V2 Input string contains substring: {stringDoesNotContainSubstring2}");
+
+        // Special case
+        var stringContainSubstring_Edge = CheckSubstringV2("KKARARAN", "ARAN");
+        Console.WriteLine($"V2 Input string contains substring: {stringContainSubstring_Edge}");
 
         var reverse = Reverse(input);
         Console.WriteLine($"Reversed: {reverse}");
