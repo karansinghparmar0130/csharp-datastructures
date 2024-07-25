@@ -3,7 +3,7 @@
 public class Program
 {
     // Count number of occurence of char in string
-    public static Dictionary<char, int> CountOccurence(string input)
+    public static IEnumerable<KeyValuePair<char, int>> CountOccurence(string input)
     {
         var localDictionary = new Dictionary<char, int>();
 
