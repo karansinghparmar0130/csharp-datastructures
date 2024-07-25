@@ -45,3 +45,51 @@ linkedList.Print();
 
 // Should print empty
 linkedList.Remove(20);
+
+// ============================================== //
+
+var linkedListV2 = new LinkedList.LinkedListV2();
+
+// Should print empty
+linkedListV2.Print();
+
+linkedListV2.Add(50);
+linkedListV2.Add(40);
+linkedListV2.Add(30);
+linkedListV2.Add(20);
+linkedListV2.Add(10);
+
+// Should print 50 40 30 20 10
+linkedListV2.Print();
+
+linkedListV2.Reverse();
+
+// Should print 10 20 30 40 50
+linkedListV2.Print();
+
+linkedListV2.Remove(50);
+
+// Should print 10 20 30 40
+linkedListV2.Print();
+
+linkedListV2.Remove(10);
+
+// Should print 20 30 40
+linkedListV2.Print();
+
+linkedListV2.Remove(30);
+
+// Should print 20 40
+linkedListV2.Print();
+
+// Should print not found
+linkedListV2.Remove(999);
+
+linkedListV2.Remove(20);
+linkedListV2.Remove(40);
+
+// Should print empty
+linkedListV2.Print();
+
+// Should print empty
+linkedListV2.Remove(20);

@@ -1,18 +1,14 @@
 namespace LinkedList;
 
-public class Node(int data)
-{
-    public int Data { get; set; } = data;
-    public Node Next { get; set; } = null;
-}
-
-public class LinkedList
+public class LinkedListV2
 {
     // Initial values
     private Node head = null;
+    private Node last = null;
+    private int count = 0;
 
-    public LinkedList() =>
-        Console.WriteLine("LinkedList v1"); 
+    public LinkedListV2() =>
+        Console.WriteLine("LinkedList v2"); 
 
     // Operations
     public void Add(int value)
@@ -26,16 +22,12 @@ public class LinkedList
         }
         else
         {
-            var currentNode = head;
-
-            // Transverse list to find last node
-            while(currentNode.Next != null)
-            {
-                currentNode = currentNode.Next;
-            }
-
-            currentNode.Next = newNode;
+            // Use last node
+            last.Next = newNode;
         }
+
+        last = newNode;
+        count++;
 
         Console.WriteLine($"Value added {value}"); 
     }
@@ -55,6 +47,7 @@ public class LinkedList
         {
             // Resets head to null
             head = head.Next;
+            count--;
             Console.WriteLine($"Value removed {value}"); 
             return;
         }
@@ -73,6 +66,14 @@ public class LinkedList
         {
             // Readjust pointers, skipping deleted node
             previousNode.Next = currentNode.Next;
+
+            if (currentNode.Next == null)
+            {
+                // Reset last node
+                last = previousNode;
+            }
+
+            count--;
         }
         else
         {
@@ -103,6 +104,7 @@ public class LinkedList
         }
         
         Console.WriteLine(printValue);    
+        Console.WriteLine($"Count: {count}");    
     }
 
     public void Reverse()
@@ -128,7 +130,8 @@ public class LinkedList
             currentNode = nextNode; 
         }
 
-        // Update head
+        // Update head & last
+        last = head;
         head = previousNode;
     }
 }
