@@ -134,4 +134,22 @@ public class LinkedListV2
         last = head;
         head = previousNode;
     }
+
+    // Create a new list based on criteria
+    public LinkedListV2 GetFilteredList(Predicate<int> critria)
+    {
+        var list = new LinkedListV2();
+
+        var currentNode = head;
+        while(currentNode != null)
+        {
+            if (critria(currentNode.Data))
+                list.Add(currentNode.Data);
+
+            currentNode = currentNode.Next;
+        }
+        
+        return list;
+    }
+
 }

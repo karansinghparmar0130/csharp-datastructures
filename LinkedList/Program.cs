@@ -93,3 +93,19 @@ linkedListV2.Print();
 
 // Should print empty
 linkedListV2.Remove(20);
+
+
+// ============================================== //
+
+var orginalList = new LinkedList.LinkedListV2();
+
+orginalList.Add(5);
+orginalList.Add(4);
+orginalList.Add(3);
+orginalList.Add(2);
+orginalList.Add(1);
+orginalList.Print();
+
+Predicate<int> criteria = x => x % 2 == 0;
+var filteredList = orginalList.GetFilteredList(criteria);
+filteredList.Print();
