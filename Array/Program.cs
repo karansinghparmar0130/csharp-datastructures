@@ -48,3 +48,43 @@ Console.WriteLine(reduceResult1);
 Console.WriteLine("Test Reduce V2");
 var reduceResult2 = array.ReduceV2(0, reduceCriteria);
 Console.WriteLine(reduceResult2);
+
+// Recursion
+object[] mixedArray = [
+    1, 
+    new int[] {2, 3, 4}, 
+    5, 
+    new object[] 
+        {
+            6, 
+            new int[] {7, 8},
+            9
+        },
+    0
+];
+
+var flattenedList = new List<int>();
+FlattenRecursively(flattenedList, mixedArray);
+Console.WriteLine($"Print Recursively: {string.Join(" ", flattenedList)}");
+
+static void FlattenRecursively(IList<int> newArray, object[] originalArray)
+{
+    foreach(var value in originalArray)
+    {
+        if (value is int[] innerArray)
+        {
+            foreach(var innerValue in innerArray)
+            {
+                newArray.Add(innerValue);
+            }
+        }
+        else if(value is int intValue)
+        {
+            newArray.Add(intValue);
+        }
+        else if(value is object[] objectArray)
+        {
+            FlattenRecursively(newArray, objectArray);
+        }
+    }
+}

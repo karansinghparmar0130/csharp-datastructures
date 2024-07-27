@@ -105,6 +105,7 @@ orginalList.Add(3);
 orginalList.Add(2);
 orginalList.Add(1);
 orginalList.Print();
+orginalList.PrintRecursively();
 
 Predicate<int> criteria = x => x % 2 == 0;
 var filteredList = orginalList.GetFilteredList(criteria);

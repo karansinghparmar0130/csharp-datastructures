@@ -152,4 +152,29 @@ public class LinkedListV2
         return list;
     }
 
+    public void PrintRecursively()
+    {
+        // In case list is empty
+        if (head == null)
+        {
+            Console.WriteLine("List is empty");    
+            return;
+        }
+
+        // Transverse list recusively to find last node
+        var printValue = GetDataRecursively(head);
+
+        Console.WriteLine($"Printing recursively: {printValue}");    
+        Console.WriteLine($"Count: {count}");    
+    }
+
+    private string GetDataRecursively(Node start)
+    {
+        if (start == null)
+        {   
+            return string.Empty;
+        }
+
+        return " " + start.Data + GetDataRecursively(start.Next);
+    }
 }
